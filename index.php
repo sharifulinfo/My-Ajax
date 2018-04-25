@@ -6,6 +6,7 @@
 			<li>
 				<a href="useravailability.php">Check User Availabilty..</a>
 				<a href="autocomplete.php">Auto Complete Text Box</a>
+				<a href="show-password.php">Show Password Button</a>
 			</li>
 		</ul> 
 		<div id="userstatus"></div>
