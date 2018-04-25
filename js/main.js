@@ -49,4 +49,23 @@ $(document).ready(function(){
 		}
 	});
 
+	$('#autosave').click(function(){ 
+		var content = $('#content').val();
+		if($.trim(content) != ''){
+			$.ajax({
+				url:"aj/autorefresh.php",
+				method:"POST",
+				data:{body:content},
+				success:function(data){ 
+					 $('#content').val("")
+				} 
+			});
+			return false;
+		}
+	});
+
+	setInterval(function(){
+		$('#autoview').load("aj/getData.php").fateIn('slow');
+	},1000);
+
 });  

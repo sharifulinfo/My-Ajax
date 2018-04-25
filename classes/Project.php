@@ -41,5 +41,26 @@ class Project{
 		echo $result;
 
 	}
+
+	public function autosave($data){
+		$query = "INSERT INTO tbl_body(body) VALUES ('$data')";
+		$userbody = $this->db->insert($query);
+	}
+
+	public function autoShow(){
+		$query = "SELECT * FROM tbl_body ORDER BY id DESC";
+		$getskill = $this->db->select($query);
+
+		$result = '';
+		$result .= '<div class = "skill"><ul>';
+		if($getskill){
+			while ($data = $getskill->fetch_assoc()) {
+				$result.='<li>'.$data['body'].'</li>';
+			}
+		}else{
+			$result .= '<li>Result Not Found</li>';
+		}
+		echo $result; 
+	}
  }
 
