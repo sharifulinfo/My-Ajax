@@ -24,5 +24,22 @@ class Project{
 		}
   
 	}
+
+	public function userskill($skill){
+		$query = "SELECT * FROM tbl_skill WHERE skill LIKE '%$skill%'";
+		$getskill = $this->db->select($query);
+
+		$result = '';
+		$result .= '<div class = "skill"><ul>';
+		if($getskill){
+			while ($data = $getskill->fetch_assoc()) {
+				$result.='<li>'.$data['skill'].'</li>';
+			}
+		}else{
+			$result .= '<li>Result Not Found</li>';
+		}
+		echo $result;
+
+	}
  }
 

@@ -2,12 +2,14 @@
 <h2>Topics: Project List</h2>
 <div class="content">
 	<div class="topics">
-		<ul>
-			<li>
-				<a href="useravailability.php">Check User Availabilty..</a>
-				<a href="autocomplete.php">Auto Complete Text Box</a>
-			</li>
-		</ul> 
+		<form action="" method="">
+			<table>
+				<tr>
+					<td>User Name:</td>
+					<td><input type="text" name="username" id = "username"></td>
+				</tr>
+			</table>
+		</form>
 		<div id="userstatus"></div>
 	</div>
 </div>
