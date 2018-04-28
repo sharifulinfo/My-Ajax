@@ -88,4 +88,32 @@ $(document).ready(function(){
 		}
 	});
 
+// Auto save Data
+	function autoSave(){
+		var message = $('#autosave').val();
+		var messageId = $('#autosaveId').val();
+		if(message != ''){
+			$.ajax({
+				url:"aj/AutoSave.php",
+				method:"POST",
+				data:{message:message,messageId:messageId},
+				dataType:"text",
+				success:function(data){
+					if(data != ''){
+						$('#autosaveId').val(data);
+					}
+					$('#ausave').text("Save As Draft...");
+					setInterval(function(){
+						$('#ausave').text("");
+					},5000)
+				}
+			}); 
+		}
+		return false;
+	}
+
+	setInterval(function(){
+		autoSave();
+	},10000);
+
 });  

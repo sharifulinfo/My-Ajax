@@ -92,5 +92,18 @@ class Project{
 		$r .= '</table>';
 		echo $r;
 	}
+
+	public function autosaveDraft($mass,$massId){
+		if($massId == ''){
+			$query = "INSERT INTO tbl_body(body) VALUES ('$mass')";
+			$userbody = $this->db->insert($query);
+			$lastId = $this->db->link->insert_id;
+			echo $lastId;
+			exit();
+		}else{
+			$query = "UPDATE tbl_body SET body = '$mass' WHERE id = '$massId'";
+			$update = $this->db->update($query);
+		}
+	}
  }
 

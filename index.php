@@ -9,6 +9,7 @@
 				<a href="show-password.php">Show Password Button</a>
 				<a href="auto-refresh.php">Auto Refresh Div</a>
 				<a href="live-search.php">Live Search</a>
+				<a href="auto-save.php">Auto Save data..</a>
 			</li>
 		</ul> 
 		<div id="userstatus"></div>
