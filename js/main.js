@@ -49,6 +49,7 @@ $(document).ready(function(){
 		}
 	});
 
+//Auto Save Data
 	$('#autosave').click(function(){ 
 		var content = $('#content').val();
 		if($.trim(content) != ''){
@@ -64,8 +65,27 @@ $(document).ready(function(){
 		}
 	});
 
+//Auto load data
 	setInterval(function(){
-		$('#autoview').load("aj/getData.php").fateIn('slow');
+		$('#autoview').load("aj/getData.php").fadeIn('slow');
 	},1000);
+
+//Live Data Search
+	$('#livesearch').keyup(function(){
+		var keyword = $(this).val();
+		if(keyword != ''){
+			$.ajax({
+				url:"aj/LiveSerch.php",
+				method:"POST",
+				data:{seach:keyword},
+				dataType:"text",
+				success:function(data){
+					$('#serachResult').html(data);
+				}
+			});
+		}else{
+			$('#serachResult').html("");
+		}
+	});
 
 });  

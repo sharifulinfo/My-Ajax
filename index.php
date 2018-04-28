@@ -8,6 +8,7 @@
 				<a href="autocomplete.php">Auto Complete Text Box</a>
 				<a href="show-password.php">Show Password Button</a>
 				<a href="auto-refresh.php">Auto Refresh Div</a>
+				<a href="live-search.php">Live Search</a>
 			</li>
 		</ul> 
 		<div id="userstatus"></div>

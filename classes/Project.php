@@ -62,5 +62,35 @@ class Project{
 		}
 		echo $result; 
 	}
+
+	public function livesearch($key){
+		$query = "SELECT * FROM tbl_userlist WHERE name LIKE '%$key%'";
+		$getdata = $this->db->select($query);
+		$r = '';
+		$r .= '<table class = "tblone"><tr>
+				<th>SL</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Department</th>
+				<th>Skil</th>
+		</tr>';
+		$i = 1;
+		if($getdata){
+			while ($data = $getdata->fetch_assoc()) {
+				$r .= '<tr>
+						<td>'.$i.'</td>
+						<td>'.$data["name"].'</td>
+						<td>'.$data["age"].'</td>
+						<td>'.$data["dep"].'</td>
+						<td>'.$data["skill"].'</td>
+					</tr>';
+				$i++;
+			}
+		}else{
+			$r .= '<tr><td colspan = 5>No data Found!</td></tr>';
+		}
+		$r .= '</table>';
+		echo $r;
+	}
  }
 
